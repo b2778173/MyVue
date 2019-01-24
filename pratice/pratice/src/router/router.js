@@ -4,19 +4,19 @@ import HelloWorld from '@/components/HelloWorld'
 import movieDetail from '@/views/movie/movie-detail'
 import movieList from '@/views/movie/movie-list'
 import movies from '@/views/movie/movies'
+import error from '@/components/error'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
     },
     {
-      path:'/movies',
-      name:'movies',
+      path: '/movies',
+      name: 'movies',
       component: movies
     },
     {
@@ -25,9 +25,15 @@ export default new Router({
       component: movieDetail
     },
     {
-      path:'/movieList',
-      name:'movieList',
+      path: '/movieList',
+      name: 'movieList',
       component: movieList
+    },
+    {
+      path: '/error',
+      name: 'error',
+      props: true,
+      component: error
     }
   ]
 })

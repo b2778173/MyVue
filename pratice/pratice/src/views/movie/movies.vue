@@ -1,11 +1,11 @@
 <template>
   <section class="grid has-search-bar">
-    <div v-if="inTheater">
+    <div v-if="inTheater.title">
       <h2>{{inTheater.title}}
-        <router-link tag="span" :to="{name: 'movieList', query: { type: inTheater.type }}" class="more btn btn-warning">更多</router-link>
+        <router-link tag="span" :to="{ name: 'movieList', query: { type: inTheater.type }}" class="more btn btn-warning">更多</router-link>
       </h2>
       <div class="card">
-        <router-link :to="{name: 'movieDetail', params:{ id: item.id } }" class="item" v-for="item in inTheater.subjects"
+        <router-link :to="{ name: 'movieDetail', params:{ id: item.id } }" class="item" v-for="item in inTheater.subjects"
           :key="item.id">
           <div class="cover">
             <div class="wp">
@@ -18,12 +18,12 @@
         </router-link>
       </div>
     </div>
-    <div v-if="cominigSoon">
+    <div v-if="cominigSoon.title">
       <h2>{{cominigSoon.title}}
         <router-link tag="span" :to="{name: 'movieList', query: { type: cominigSoon.type }}" class="more btn btn-warning">更多</router-link>
       </h2>
       <div class="card">
-        <router-link :to="{name: 'movieDetail', params:{ type: item.id } }" class="item" v-for="item in cominigSoon.subjects"
+        <router-link :to="{name: 'movieDetail', params:{ id: item.id } }" class="item" v-for="item in cominigSoon.subjects"
           :key="item.id">
           <div class="cover">
             <div class="wp">
@@ -36,10 +36,12 @@
         </router-link>
       </div>
     </div>
+    <spinner :show="loading"></spinner>
   </section>
 </template>
 <!-- .js 檔案在此相依 -->
 <script>
+import spinner from '@/components/Spinner'
   import {
     API_TYPE,
     fetchMoviesByType
@@ -49,7 +51,7 @@
   } from "../../store/api";
 
   export default {
-    components: {},
+    components: {spinner},
     data() {
       return {
         loading: true,
