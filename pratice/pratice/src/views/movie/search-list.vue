@@ -49,7 +49,7 @@
           console.log('start', start);
         }
         console.log("start", start);
-        this.movieList.subjects = (await fetchSearchMovies(this.query, start).subjects);
+        this.movieList = await fetchSearchMovies(this.query, start);
         console.log("this.movieList:", this.movieList);
       }
     }
