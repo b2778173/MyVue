@@ -19,6 +19,7 @@
     "node-sass": "^4.11.0",
     "popper.js": "^1.14.6",
     "save": "^2.3.3",
+    "tether": "^1.4.5",
     "vue": "^2.5.2",
     "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.0.1"

@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/router'
 import infiniteScroll from 'vue-infinite-scroll'
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap' 
 
 Vue.use(infiniteScroll)
 

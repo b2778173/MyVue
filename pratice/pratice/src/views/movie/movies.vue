@@ -44,7 +44,8 @@
 import spinner from '@/components/Spinner'
   import {
     API_TYPE,
-    fetchMoviesByType
+    fetchMoviesByType,
+    fetch2
   } from "@/store/api";
   import {
     fetch
@@ -66,19 +67,21 @@ import spinner from '@/components/Spinner'
     computed: {},
     mounted() {
       console.log("API_TYPE.movie.in_theaters");
-      fetchMoviesByType(API_TYPE.movie.in_theaters, "0", "9").then(data => {
+      fetchMoviesByType(API_TYPE.movie.in_theaters, "0", "9",this).then(data => {
         this.inTheater = data;
         this.inTheater.type = API_TYPE.movie.in_theaters;
         this.loading = false;
         console.log("inTheater=", this.inTheater);
       });
-
-      fetchMoviesByType(API_TYPE.movie.coming_soon, '0', '9').then(data => {
+        console.log('$route', this.$route.path);
+      fetchMoviesByType(API_TYPE.movie.coming_soon, '0', '9',this).then(data => {
         this.cominigSoon = data;
         this.cominigSoon.type = API_TYPE.movie.coming_soon;
         this.loading = false;
         console.log('comingSoon=', this.cominigSoon);
       });
+
+      // console.log(fetch2('',this));// 測試用
     },
     updated() {},
     destroyed() {}

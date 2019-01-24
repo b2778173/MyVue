@@ -2,7 +2,7 @@
 <body class="loading">
   <h1>Opps</h1>
   <h2>
-    {{errMsg}}
+    {{errMsg ? errMsg : '發生錯誤'}}
     <b>:(</b>
   </h2>
   <div class="gears">

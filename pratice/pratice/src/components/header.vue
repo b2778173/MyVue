@@ -4,7 +4,7 @@
       <div class="TalionNav-primary">
         <nav>
           <ul>
-            <li><a href="#/movies" style="color: #2384E8;">电影</a></li>
+            <li><a href="#/movies" style="color: #2384E8;">電影</a></li>
             <!--<li><a href="#/book/search" style="color: #9F7860;">图书</a></li>-->
           </ul>
           <span class="search"></span>
@@ -12,10 +12,11 @@
       </div>
     </header>
     <div class="search">
-      <input type="text" class="search-input" v-model.trim="query" @keyup.enter="search()" name="search" placeholder="请输入搜索内容" />
+      <input type="text" class="search-input" v-model.trim="query" @keyup.enter="search()" name="search" placeholder="Search" />
       <img src="../assets/search-btn.png" class="search-btn" @click="search()" />
     </div>
   </div>
+  
 </template>
 <script>
   export default {
@@ -23,11 +24,11 @@
       return {
         query: '',
         placeholder: '',
-        path: 'search-movie'
+        path: '/movie/search'
       }
     },
     mounted() {
-      if (this.$route.path === 'index' || this.$route.path.indexOf('movie')) {
+      if (this.$route.path === 'index' || this.$route.path.indexOf('movies')) {
         this.path = '/movie/search';
       } else if (this.$route.path.indexOf('book')) {
         this.path = '/book/search'
@@ -38,7 +39,7 @@
         this.$router.push({
           path: this.path,
           query: {
-            query: this.query
+            mName: this.query
           }
         });
         this.query = '';
