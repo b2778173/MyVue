@@ -16,16 +16,16 @@
         </router-link>
       </div>
     </div>
+    <spinner :show="loading" style="margin-top:25%"></spinner>
   </div>
 </template>
 <!-- .js 檔案在此相依 -->
 <script>
-  import {
-    fetchSearchMovies
-  } from "@/store/api";
+  import { fetchSearchMovies } from "@/store/api"
+  import spinner from '@/components/Spinner'
 
   export default {
-    components: {},
+    components: { spinner },
     directives: {},
     data() {
       return {
@@ -33,7 +33,9 @@
         movieList: {
           subjects: []
         },
-        busy: false
+        busy: false,
+        loading:true,
+      
       };
     },
     computed: {},
@@ -42,15 +44,24 @@
       console.log("this.$route.query.mName:", this.$route.query.mName);
     },
     methods: {
+      
       async loadMore() {
-        let start = 0;
-        if (this.movieList.subjects != null) {
-          start = this.movieList.subjects.length;
-          console.log('start', start);
-        }
-        console.log("start", start);
-        this.movieList = await fetchSearchMovies(this.query, start);
+        let start = this.movieList.subjects.length;
+        console.log('start', start);
+        this.loading = true;
+        
+         
+         
+        
+        console.log("start", this.start);
+        let data = await fetchSearchMovies(this.query, start);
+        console.log('data:', data);
+        this.movieList.title = data.title;
+        this.movieList.total = data.total;
+        this.movieList.subjects = this.movieList.subjects.concat(data.subjects);
+
         console.log("this.movieList:", this.movieList);
+        this.loading = false;
       }
     }
   };

@@ -27,13 +27,7 @@
         path: '/movie/search'
       }
     },
-    mounted() {
-      if (this.$route.path === 'index' || this.$route.path.indexOf('movies')) {
-        this.path = '/movie/search';
-      } else if (this.$route.path.indexOf('book')) {
-        this.path = '/book/search'
-      }
-    },
+    mounted() {},
     methods: {
       search() {
         this.$router.push({
