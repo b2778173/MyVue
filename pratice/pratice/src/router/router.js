@@ -10,37 +10,37 @@ import search from '@/views/movie/search-list'
 Vue.use(Router)
 
 export default new Router({
-  routes: [{
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/movies',
-      name: 'movies',
-      component: movies
-    },
-    {
-      path: '/movieDetail',
-      name: 'movieDetail',
-      component: movieDetail
-    },
-    {
-      path: '/movieList',
-      name: 'movieList',
-      component: movieList
-    },
-    {
-      path: '/error',
-      name: 'error',
-      props: true,
-      component: error
-    },
-    {
-      path: '/movie/search',
-      name: 'search',
-      props: true,
-      component: search
-    }
-  ]
+    routes: [{
+            path: '/',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
+        {
+            path: '/movies',
+            name: 'movies',
+            component: movies
+        },
+        {
+            path: '/movie-detail',
+            name: 'movie-detail',
+            component: movieDetail
+        },
+        {
+            path: '/movieList',
+            name: 'movieList',
+            component: movieList
+        },
+        {
+            path: '/error',
+            name: 'error',
+            props: true,
+            component: error
+        },
+        {
+            path: '/movie/search',
+            name: 'search',
+            props: true,
+            component: search
+        }
+    ]
 })

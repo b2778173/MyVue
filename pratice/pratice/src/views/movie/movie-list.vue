@@ -51,7 +51,7 @@
     },
     methods: {
       loadMore() {
-        let     start = this.movieList.subjects.length;
+        let start = this.movieList.subjects.length;
         this.busy = true;
         this.isScroll = true;
         fetchMoviesByType(this.type, start).then(data => {
