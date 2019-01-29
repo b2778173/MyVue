@@ -5,7 +5,7 @@
         <nav>
           <ul>
             <li><a href="#/movies" style="color: #2384E8;">電影</a></li>
-            <!--<li><a href="#/book/search" style="color: #9F7860;">图书</a></li>-->
+            <li><a href="#/attractions" style="color: #9F7860;">景點</a></li>
           </ul>
           <span class="search"></span>
         </nav>

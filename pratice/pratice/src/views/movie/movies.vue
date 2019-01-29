@@ -5,7 +5,7 @@
         <router-link tag="span" :to="{ name: 'movieList', query: { type: inTheater.type }}" class="more btn btn-warning">更多</router-link>
       </h2>
       <div class="card">
-        <router-link :to="{ name: 'movieDetail', params:{ id: item.id } }" class="item" v-for="item in inTheater.subjects"
+        <router-link :to="{ name: 'movie-detail', params:{ id: item.id } }" class="item" v-for="item in inTheater.subjects"
           :key="item.id">
           <div class="cover">
             <div class="wp">
@@ -23,7 +23,7 @@
         <router-link tag="span" :to="{name: 'movieList', query: { type: cominigSoon.type }}" class="more btn btn-warning">更多</router-link>
       </h2>
       <div class="card">
-        <router-link :to="{name: 'movieDetail', params:{ id: item.id } }" class="item" v-for="item in cominigSoon.subjects"
+        <router-link :to="{name: 'movie-detail', params:{ id: item.id } }" class="item" v-for="item in cominigSoon.subjects"
           :key="item.id">
           <div class="cover">
             <div class="wp">
@@ -48,7 +48,7 @@ import spinner from '@/components/Spinner'
     fetch2
   } from "@/store/api";
   import {
-    fetch
+    fetch, fetch3
   } from "../../store/api";
 
   export default {
@@ -80,8 +80,6 @@ import spinner from '@/components/Spinner'
         this.loading = false;
         console.log('comingSoon=', this.cominigSoon);
       });
-
-      // console.log(fetch2('',this));// 測試用
     },
     updated() {},
     destroyed() {}

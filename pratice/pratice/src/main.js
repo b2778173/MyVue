@@ -8,7 +8,6 @@ import infiniteScroll from 'vue-infinite-scroll'
 // import 'bootstrap' 
 
 Vue.use(infiniteScroll)
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

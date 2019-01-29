@@ -3,7 +3,7 @@
     <div>
       <h2>{{movieList.title}}</h2>
       <div class="card" v-if="movieList.subjects.length > 0">
-        <router-link :to="{name: 'movieDetail', params:{ id: item.id } }" class="item" v-for="item in movieList.subjects"
+        <router-link :to="{name: 'movie-detail', params:{ id: item.id } }" class="item" v-for="item in movieList.subjects"
           :key="item.id">
           <div class="cover">
             <div class="wp">

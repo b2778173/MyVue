@@ -4,7 +4,7 @@
 import axios from 'axios';
 
 // 使用代理
-const HOST = process.env.NODE_ENV === 'development' ? 'https://node-douban-api.herokuapp.com' : 'http://localhost:8081';
+const HOST = process.env.NODE_ENV === 'development' ? 'http://api.douban.com/v2' : 'http://localhost:8081';
 
 export const API_TYPE = {
   movie: {
@@ -16,8 +16,9 @@ export const API_TYPE = {
 export function fetch(url) {
 
   return new Promise((resolve, reject) => {
-    axios.get(HOST + url)
+    axios.get('/api' + url)
       .then(response => {
+        console.log('URL=', HOST + url)
         resolve(response.data);
       })
   })
@@ -40,8 +41,12 @@ export async function fetch2(url, component) {
   }
 }
 
+export async function attraction(){
+  return await axios('/attractions');
+}
+
 export function fetchItemByType(type, component) {
-  return fetch2(type, component);
+  return fetch(type, component);
 }
 
 
@@ -50,10 +55,10 @@ export function fetchMoviesByType(type, start = 0, count = 20, component) {
 }
 
 export function fetchMovieById(id, component) {
-  return fetch2(`/movie/subject/${id}`, component);
+  return fetch(`/movie/subject/${id}`, component);
 }
 
 export function fetchSearchMovies(query, start = 0, component) {
   let url = encodeURI(`/movie/search?q=${query}&start=${start}`);
-  return fetch2(url, component);
+  return fetch(url, component);
 }

@@ -1,6 +1,6 @@
 <template>
 <body class="loading">
-  <h1>Opps</h1>
+  <h1>Opps</h1><button @click="test">test</button>
   <h2>
     {{errMsg ? errMsg : '發生錯誤'}}
     <b>:(</b>
@@ -26,6 +26,8 @@
 </template>
 <!-- .js 檔案在此相依 -->
 <script>
+import { fetch3 } from "@/store/api"
+
 export default {
   name: "",
   mixins: [],
@@ -45,7 +47,9 @@ export default {
   },
   updated() {},
   beforeDestroy() {},
-  methods: {}
+  methods: {
+   
+  }
 };
 </script>
 <style lang="scss">

@@ -6,6 +6,7 @@ import movieList from '@/views/movie/movie-list'
 import movies from '@/views/movie/movies'
 import error from '@/components/error'
 import search from '@/views/movie/search-list'
+import attractions from '@/views/attraction/attractions'
 
 Vue.use(Router)
 
@@ -22,7 +23,7 @@ export default new Router({
     },
     {
       path: '/movieDetail',
-      name: 'movieDetail',
+      name: 'movie-detail',
       component: movieDetail
     },
     {
@@ -41,6 +42,12 @@ export default new Router({
       name: 'search',
       props: true,
       component: search
+    },
+    {
+      path: '/attractions',
+      name: 'attractions',
+      props: true,
+      component: attractions
     }
   ]
 })
